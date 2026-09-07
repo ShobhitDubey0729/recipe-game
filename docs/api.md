@@ -6,48 +6,84 @@ Base URL (development): `http://localhost:8000`
 
 ```http
 GET /health
+GET /ready
 ```
 
-Response:
-
-```json
-{"status": "ok"}
-```
-
-## Recipes (Phase 2+)
+## Recipes
 
 ```http
-GET /api/v1/recipes?page=1&page_size=20
+GET /api/v1/recipes
 GET /api/v1/recipes/{id}
 GET /api/v1/recipes/search?q=masala
 ```
 
-Query parameters:
+### Query parameters
 
-- `cuisine` — `north_indian` | `south_indian`
-- `meal_type` — `breakfast` | `brunch` | `lunch` | `snacks` | `dinner`
-- `vegetarian`, `vegan`, `gluten_free` — boolean
-- `high_protein`, `low_calorie` — boolean filters
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `q` | string | Search name, description, tags, ingredients |
+| `cuisine` | `north_indian` \| `south_indian` | Filter by cuisine |
+| `meal_type` | `breakfast` \| `brunch` \| `lunch` \| `snacks` \| `dinner` | Filter by meal |
+| `vegetarian` | boolean | Vegetarian only |
+| `vegan` | boolean | Vegan only |
+| `gluten_free` | boolean | Gluten-free only |
+| `high_protein` | boolean | Protein ≥ 8g per 100g |
+| `low_calorie` | boolean | Calories ≤ 200 per 100g |
+| `max_prep_time_minutes` | int | Max prep time |
+| `sort` | `popular` \| `newest` \| `preparation_time` \| `calories` \| `protein` | Sort order |
+| `page` | int | Page number (default 1) |
+| `page_size` | int | Items per page (default 20, max 100) |
 
-## Games (Phase 5+)
+### Example list response
 
-```http
-POST /api/v1/games
-POST /api/v1/games/{game_id}/join
-POST /api/v1/games/{game_id}/start
-POST /api/v1/games/{game_id}/vote
-GET /api/v1/games/{game_id}/result
+```json
+{
+  "items": [
+    {
+      "id": "uuid",
+      "name": "Masala Dosa",
+      "slug": "masala-dosa",
+      "cuisine": "south_indian",
+      "meal_type": "breakfast",
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "calories_per_100g": 200.0,
+      "protein_g_per_100g": 5.5,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "difficulty": "medium",
+      "image_url": null
+    }
+  ],
+  "page": 1,
+  "page_size": 20,
+  "total": 105
+}
 ```
 
-WebSocket: `/ws/games/{game_id}`
+## Categories
+
+```http
+GET /api/v1/categories
+GET /api/v1/cuisines
+```
 
 ## Error format
 
 ```json
 {
   "error": {
-    "code": "GAME_EXPIRED",
-    "message": "This game has expired."
+    "code": "RECIPE_NOT_FOUND",
+    "message": "Recipe not found."
   }
 }
+```
+
+## Seed data
+
+```bash
+cd backend
+alembic upgrade head
+python scripts/seed_recipes.py
 ```

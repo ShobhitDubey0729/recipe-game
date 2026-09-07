@@ -26,6 +26,7 @@ dev = [
     "pytest-asyncio>=0.24.0",
     "httpx>=0.28.0",
     "ruff>=0.8.0",
+    "aiosqlite>=0.20.0",
 ]
 
 [tool.setuptools.packages.find]
@@ -38,4 +39,7 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py39"
+
+[tool.ruff.lint]
+ignore = ["B008", "UP006", "UP035", "UP045", "FA100"]

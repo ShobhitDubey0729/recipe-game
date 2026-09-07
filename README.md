@@ -73,15 +73,14 @@ cd android && ./gradlew test lint
 
 ## GitHub setup
 
-1. Create a new repository on GitHub named `rasoi-royale` (private or public).
-2. From this folder:
+This project is hosted at: `https://github.com/YOUR_USERNAME/recipe-game`
+
+To push updates:
 
 ```bash
-git init -b main
 git add -A
-git commit -m "Initial commit: Rasoi Royale monorepo foundation"
-git remote add origin https://github.com/YOUR_USERNAME/rasoi-royale.git
-git push -u origin main
+git commit -m "Your message"
+git push origin main
 ```
 
 ## Google Play release
