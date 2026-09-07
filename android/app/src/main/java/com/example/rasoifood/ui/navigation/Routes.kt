@@ -12,4 +12,12 @@ object Routes {
     const val GAME_VOTING = "game_voting"
     const val GAME_RESULT = "game_result"
     const val SETTINGS = "settings"
+
+    fun recipes(cuisine: String? = null, mealType: String? = null): String {
+        return "recipes?cuisine=${cuisine ?: ""}&mealType=${mealType ?: ""}"
+    }
+
+    fun recipeDetail(recipeId: String): String = "recipe_detail/$recipeId"
+
+    fun search(query: String = ""): String = "search?query=${query}"
 }
