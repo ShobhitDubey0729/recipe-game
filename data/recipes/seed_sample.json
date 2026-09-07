@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "recipes": [
+    {
+      "name": "Masala Dosa",
+      "slug": "masala-dosa",
+      "description": "Crispy rice crepe filled with spiced potato masala.",
+      "cuisine": "south_indian",
+      "meal_type": "breakfast",
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "servings": 2,
+      "calories_per_100g": 180,
+      "protein_g_per_100g": 4.5,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "difficulty": "medium",
+      "ingredients": [
+        {"name": "rice batter", "quantity_g": 200},
+        {"name": "potato", "quantity_g": 150}
+      ],
+      "instructions": [
+        "Prepare dosa batter and let it ferment.",
+        "Cook potato masala filling.",
+        "Spread batter on hot tawa and cook until crisp.",
+        "Add masala, fold, and serve hot."
+      ],
+      "tags": ["dosa", "breakfast", "south indian"],
+      "nutrition_source": "estimated",
+      "status": "published"
+    },
+    {
+      "name": "Aloo Paratha",
+      "slug": "aloo-paratha",
+      "description": "Whole wheat flatbread stuffed with spiced mashed potatoes.",
+      "cuisine": "north_indian",
+      "meal_type": "breakfast",
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 15,
+      "servings": 2,
+      "calories_per_100g": 265,
+      "protein_g_per_100g": 6.2,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "difficulty": "medium",
+      "ingredients": [
+        {"name": "whole wheat flour", "quantity_g": 180},
+        {"name": "potato", "quantity_g": 200}
+      ],
+      "instructions": [
+        "Knead dough with water and rest.",
+        "Prepare spiced potato filling.",
+        "Stuff dough balls, roll, and cook on tawa with ghee."
+      ],
+      "tags": ["paratha", "breakfast", "north indian"],
+      "nutrition_source": "estimated",
+      "status": "published"
+    }
+  ]
+}
